@@ -247,7 +247,7 @@ At last, with all of that on mind, you can start coding!
 <br/>
 <br/>
 
-[< What is Angular?](../boring-theory-1) | [Lab 01 - Starting a New Angular Project >](../lab-01)
+[< What is Angular?](../boring-theory-1) | Lab 01 - Starting a New Angular Project >
 
 <p align="center">
     <img src="../boring-theory-1/resources/header.png">
