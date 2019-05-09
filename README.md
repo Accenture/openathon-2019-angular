@@ -40,8 +40,7 @@ Once **Open Events** solution is finished, it will be published as a tool for **
   * Home
   * Events
     * See events
-      * List (with filters as popular, last, location…)
-      * Calendar
+      * List (with filters as last, location…)
       * Event page selected with details
     * Find events (filters)
     * Create event (with categories)
@@ -56,7 +55,15 @@ Once **Open Events** solution is finished, it will be published as a tool for **
     * Edit profile
     * Delete profile
 
-
+<br/>
+And a simple navigation map would be:<br/>
+<br/>
+<br/>
+<p align="center">
+    <img src="./boring-theory-1/resources/NavMap.png" width="700">
+</p>
+<br/>
+<br/>
 <br/>
 
 ## Openathon IV Labs
