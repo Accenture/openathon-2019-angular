@@ -76,10 +76,10 @@ This edition of the Openathon is divided in the following theory and laboratorie
 | [Boring Theory. Chapter 2](/boring-theory-2)           | Main Principles, Solid Practises and Code Quality           |
 | [Lab 1](/lab-01)                | Starting a New Angular Project             |
 | [Lab 2](/lab-02)                | Angular Basics                             |
-| Lab 3                | Routing Basics                            |
-| Lab 4                | Services             |
+| [Lab 3](/lab-03)                  | Routing Basics                            |
+| [Lab 4](/lab-04)                 | Services             |
+| Lab 5                 | Routing 2 and CRUD             |
 | ...             | ...                           |
-| Proof of Concept           |                           |
 | Openathon       | Openathon final lab                        |
 
 

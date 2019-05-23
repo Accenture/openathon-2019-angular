@@ -400,7 +400,7 @@ After saving all the changes, the application should update the event details ac
 <br/>
 <br/>
 
-[< Lab 01 - Starting a New Angular Project](../lab-01) | Lab 03 - Routing Basics >
+[< Lab 01 - Starting a New Angular Project](../lab-01) | [Lab 03 - Routing Basics](../lab-03) >
 
 
 
