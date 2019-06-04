@@ -1,0 +1,37 @@
+<div class="container">
+  <div id="add-event-btn">
+    <button
+      mat-raised-button
+      color="primary"
+      [routerLink]="['/addEditEvent/', '']"
+    >
+      Add Event
+    </button>
+  </div>
+
+  <div id="eventTable">
+    <table mat-table [dataSource]="events" class="mat-elevation-z8">
+      <ng-container matColumnDef="Date">
+        <th mat-header-cell *matHeaderCellDef>Date</th>
+        <td mat-cell *matCellDef="let element">{{ element.date }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="Location">
+        <th mat-header-cell *matHeaderCellDef>Location</th>
+        <td mat-cell *matCellDef="let element">{{ element.location }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="Title">
+        <th mat-header-cell *matHeaderCellDef>Title</th>
+        <td mat-cell *matCellDef="let element">{{ element.title }}</td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr
+        mat-row
+        *matRowDef="let row; columns: displayedColumns"
+        [routerLink]="['/eventDetails/', row.id]"
+      ></tr>
+    </table>
+  </div>
+</div>

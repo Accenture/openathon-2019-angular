@@ -1,0 +1,41 @@
+<div class="container">
+  <h2>Add Event</h2>
+  <form
+    novalidate
+    [formGroup]="addEditForm"
+    #fform="ngForm"
+    (ngSubmit)="onSubmit()"
+    *ngIf="addEditForm"
+  >
+    <mat-form-field>
+      <input matInput placeholder="Title" type="text" formControlName="title" />
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Date" type="date" formControlName="date" />
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="Location"
+        type="text"
+        formControlName="location"
+      />
+    </mat-form-field>
+
+    <mat-form-field>
+      <textarea
+        matInput
+        placeholder="Description"
+        rows="4"
+        type="text"
+        formControlName="description"
+      ></textarea>
+    </mat-form-field>
+
+    <div id="save-btn">
+      <button mat-raised-button color="primary" type="submit">
+        Save
+      </button>
+    </div>
+  </form>
+</div>

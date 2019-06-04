@@ -408,7 +408,7 @@ Save all the changes, the application should display the event data now.
 <br/>
 <br/>
 
-[< Lab 03 - Routing Basics](../lab-03) | Lab 05 - Routing 2 and CRUD >
+[< Lab 03 - Routing Basics](../lab-03) | [Lab 05 - Routing 2 and CRUD >](../lab-05) 
 
 <p align="center">
     <img src="../boring-theory-1/resources/header.png">

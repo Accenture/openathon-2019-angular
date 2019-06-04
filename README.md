@@ -78,7 +78,8 @@ This edition of the Openathon is divided in the following theory and laboratorie
 | [Lab 2](/lab-02)                | Angular Basics                             |
 | [Lab 3](/lab-03)                  | Routing Basics                            |
 | [Lab 4](/lab-04)                 | Services             |
-| Lab 5                 | Routing 2 and CRUD             |
+|  [Lab 5](/lab-05)        | Routing 2 and CRUD             |
+| Lab 6             | Central State management                         
 | ...             | ...                           |
 | Openathon       | Openathon final lab                        |
 
