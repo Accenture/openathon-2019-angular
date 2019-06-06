@@ -194,7 +194,7 @@ import { RouterModule } from "@angular/router";
 * Add a new method in event-service to get the event using the GET method.
 
 ```javascript
-getEvent(id: number): Observable<any> {
+getEvent(id: string): Observable<any> {
     const headers = new HttpHeaders({
       "Content-Type": "application/json"
     });
@@ -225,7 +225,8 @@ export class EventDetailsComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private eventService: EventService
+    private eventService: EventService,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -285,17 +286,22 @@ import { Event } from "../models/event";
 
 ```javascript
 ...
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from "@angular/material/input";
 ...
  imports: [
-	...
+  ...
+  FormsModule,
+  ReactiveFormsModule,
 	MatFormFieldModule,
   MatInputModule
   ],
   ...
  exports: [
   ...
+  FormsModule,
+  ReactiveFormsModule,
   MatFormFieldModule,
   MatInputModule
   ]
@@ -531,6 +537,12 @@ const routes: Routes = [
 ...
 import { Router } from "@angular/router";
 
+...
+
+constructor(
+  ...
+  private router: Router
+) {}
 ...
  ngOnInit() {
     const id = this.route.snapshot.params["id"];
