@@ -1,0 +1,35 @@
+// @import '../../shared/styles/colors';
+@import '../../shared/styles/variables';
+
+
+.container {
+  @include container();
+  @include background('/assets/imgs/patt5.png', center, contain);
+}
+
+.form {
+  display: flex;
+  justify-content: center;
+}
+
+.form-signup {
+  display: flex;
+  flex-flow: column;
+  width: 40%;
+  padding: 1rem;
+  background-color: rgba(255,255,255,0.9);
+}
+
+.login-btn {
+  text-align: right;
+  margin-top: 2rem;
+
+  .login {
+    font-size: 12px;
+    margin-bottom: 0.5rem;
+
+    a {
+      font-weight: 600;
+    }
+  }
+}

@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="section-title">
+    <h1>Events</h1>
+  </div>
+
+  <div class="content">
+    <div class="item control">
+      <div class="filter" *ngIf="isAuthenticated">
+        Filter:
+        <mat-slide-toggle
+          class="slide-mis-eventos"
+          [checked]="false"
+          [(ngModel)]="slideMyEvents"
+          (change)="myEventsChange()">
+          My events
+          </mat-slide-toggle>
+      </div>
+
+
+      <button mat-raised-button color="primary" [routerLink]="['/addEditEvent/', '']">
+        Add Event
+      </button>
+    </div>
+
+    <div class="item events">
+      <div class="event" *ngFor="let event of events">
+        <div class="top">
+          <a class="link-event" [routerLink]="['/eventDetails/', event.id]">{{ event.title }}</a>
+          <span class="date">{{ event.date }}</span></div>
+        <div class="bottom">{{ event.location }}</div>
+      </div>
+    </div>
+  </div>
+</div>

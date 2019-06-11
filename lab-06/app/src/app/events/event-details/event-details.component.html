@@ -1,0 +1,37 @@
+<div class="container">
+  <div id="event-card-details" *ngIf="event">
+    <div id="edit-event-btn">
+      <button
+        id="delete-btn"
+        mat-raised-button
+        color="warn"
+        (click)="deleteEvent(event)"
+      >
+        Delete Event
+      </button>
+
+      <button
+        mat-raised-button
+        color="primary"
+        [routerLink]="['/addEditEvent/', event.id]"
+      >
+        Edit Event
+      </button>
+    </div>
+
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>
+          <h3>{{ event.title | uppercase }}</h3>
+        </mat-card-title>
+        <mat-card-subtitle>
+          <p>{{ event.location }} - {{ event.date | date: "dd/MM/yyyy" }}</p>
+        </mat-card-subtitle>
+      </mat-card-header>
+
+      <mat-card-content>
+        <p>{{ event.description }}</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

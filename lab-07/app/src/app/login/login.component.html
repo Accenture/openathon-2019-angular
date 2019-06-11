@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="section-title">
+    <h1>Login</h1>
+  </div>
+
+  <div class="form">
+    <form class="form-login" novalidate [formGroup]="loginForm" #fform="ngForm" (ngSubmit)="onSubmit()">
+        <mat-form-field>
+          <input matInput placeholder="Email" type="text" formControlName="email" />
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Password" type="password" formControlName="password" />
+        </mat-form-field>
+
+        <div *ngIf="msgs" class="msgs">
+          {{msgs}}
+        </div>
+
+        <div class="login-btn">
+          <div class="sign-up">Need an account? <a routerLink="/signup">Sign up</a></div>
+          <button mat-raised-button color="primary" type="submit">
+            Login
+          </button>
+        </div>
+      </form>
+  </div>
+</div>

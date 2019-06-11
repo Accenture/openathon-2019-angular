@@ -1,0 +1,61 @@
+@import '../../shared/styles/colors';
+@import '../../shared/styles/variables';
+
+.container {
+  @include container();
+  @include background('/assets/imgs/patt2.png', center, cover);
+}
+
+.content {
+  width: 60%;
+  margin: 0 auto;
+
+  @media(max-width: $screen-md) {
+    width: 80%;
+  }
+
+  @media(max-width: $screen-sm) {
+    width: 100%;
+  }
+
+  .item {
+    margin-top: 2rem;
+  }
+
+  .control {
+    display: flex;
+    flex-flow: row;
+    align-items: flex-end;
+    border-bottom: 1px solid $gray;
+    padding-bottom: 0.8rem;
+  }
+
+  button {
+    margin-left: auto;
+  }
+
+  .events {
+    width: 60%;
+    margin: 4rem auto;
+
+    .event {
+      margin-bottom: 1.5rem;
+    }
+
+    .link-event {
+      font-weight: 900;
+      margin: 0 2rem 0 0;
+    }
+
+    .date {
+      font-style: italic;
+      font-size: 14px;
+    }
+
+    .bottom {
+      font-weight: 300;
+      margin-top: 0.3rem;
+      font-size: 15px;
+    }
+  }
+}

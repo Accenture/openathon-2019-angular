@@ -1,0 +1,55 @@
+// @import '../../shared/styles/colors';
+@import '../../shared/styles/variables';
+
+.container {
+  @include container();
+  @include background('/assets/imgs/patt3.png', center, cover);
+}
+
+.event-card-details {
+  display: flex;
+  flex: 1;
+  flex-flow: column;
+  margin: 0 auto;
+  max-width: 800px;
+}
+
+.edit-event-btn {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 2rem;
+}
+
+.delete-btn {
+  margin-right: 6px;
+}
+
+.event {
+  box-shadow: none;
+  max-width: 500px;
+  background-color: transparent;
+  font-family: $acn-font;
+  padding: 0;
+  margin: 0 auto;
+
+  .header {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+
+    .title h3 {
+      margin: 0;
+    }
+  }
+
+  .img {
+    margin-bottom: 2rem;
+    text-align: center;
+
+    img {
+      width: 100%;
+      margin: 0;
+    }
+  }
+}

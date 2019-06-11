@@ -1,3 +1,7 @@
+<p align="center">
+    <img src="../boring-theory-1/resources/header.png">
+</p>
+
 # Lab 05 - Routing 2 and CRUD 
 
 So far, we have build an application that is reading data from a database and displaying it as our event list. To do this application more useful, we are going to implement CRUD (Create, Read, Update and Delete) operations. As we've just said we are reading data already, now we are to develop further the web app adding the option to create a new event as well as update and delete an event. 
@@ -1361,7 +1365,7 @@ The profile.component.scss file;
 <br/>
 <br/>
 
-[< Lab 04 - Services](../lab-04) | Lab 06 - Central State management >
+[< Lab 04 - Services](../lab-04) | [Lab 06 - Central State management >](../lab-06) 
 
 <p align="center">
     <img src="../boring-theory-1/resources/header.png">
