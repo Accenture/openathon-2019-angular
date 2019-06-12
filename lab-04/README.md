@@ -362,6 +362,7 @@ npm install json-server -g
 </p>
 
 <br/>
+
 > **_Side Note:_** 
 By default, the server will start at port number 3000. If you wish to change the port number, you can do it with the '-p' parameter.
 ```sh
@@ -369,9 +370,9 @@ By default, the server will start at port number 3000. If you wish to change the
 ```
 
 
-Once our server is running and we should be able to access to our database data through the following address:
+Once our server is running, we should be able to access to our database data through the following address:
 
-http://localchost:3000/events
+http://localhost:3000/events
 
 
 
