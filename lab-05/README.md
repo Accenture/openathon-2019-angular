@@ -4,21 +4,21 @@
 
 # Lab 05 - Routing 2 and CRUD 
 
-So far, we have build an application that is reading data from a database and displaying it as our event list. To do this application more useful, we are going to implement CRUD (Create, Read, Update and Delete) operations. As we've just said we are reading data already, now we are to develop further the web app adding the option to create a new event as well as update and delete an event. 
+So far, we have built an application that is reading data from a database and displaying it as our event list. To do this application more useful, we are going to implement CRUD (Create, Read, Update and Delete) operations. As we've just said we are already reading data, and now we are going to improve it our web app adding the option for creating, updating and deleting a new event. 
 
 Moreover, we are going to see how to send parameters through routing and how to read them from the controllers. 
 
 * Implement CRUD operations
-* Send parameters trhough url and read them 
+* Send parameters through URL and read them 
 
-> **_Side Note:_** Before starting this lab, donwload this new <a href="./app/db.json">Donwnload db.json file </a>and update use it for your json-server previously installed in lab04. Remember that you can start the json server with the following command:
+> **_Side Note:_** Before starting this lab, download this new <a href="./app/db.json">Download db.json file </a>and update use it for your json-server previously installed in lab04. Remember that you can start the json server with the following command:
 ```sh
 	json-server --watch db.json
 ```
 
 ## Read Event Details
 
-Let's refactor our event list and details to a more proper way. We are going to split them, first we will use a table for the event list using mat-table from Angular Material. When the user clicks in one event we will be using routerLink to redirect them to the new event details view 
+Let's refactor our event list and details to a more proper way. We are going to split them, first we will use a table for the event list using mat-table from Angular Material. When the user clicks in one event, we will be using routerLink to redirect them to the new event details view 
 
 * Add the MatTableModule from Material in the shared.module.ts
 
@@ -140,7 +140,7 @@ import { RouterModule } from "@angular/router";
 
 
 
-* As we said we are going to change the event-details.component.html to use a mat-card and include a button to edit the event. Also, we are adding the 'Edit Event' button that will redirect us to a new view.
+* As we said, we are going to change the event-details.component.html to use a mat-card and include a button to edit the event. Also, we are adding the 'Edit Event' button that will redirect us to a new view.
 ```javascript
 <div class="container">
   <div id="event-card-details">
@@ -210,7 +210,7 @@ getEvent(id: string): Observable<any> {
   }
 ```
 
-* We are going to get the parameter id from the URL and using our event service to get the especific event from the db. 
+* We are going to get the parameter id from the URL and using our event service to get the specific event from the Database. 
 
 event-details.component.ts
 ```javascript
@@ -244,12 +244,12 @@ export class EventDetailsComponent implements OnInit {
 ```
 
 
-* Save all the changes that we have made. You should be able to get the event list and click in one of them and see its details in a new view.
+* Save all the changes that we have made. You should be able to get the event list, click in one of them and see its details in a new view.
 
 
-## Create And Update An Event
+## Create and Update an Event
 
-** Now we are going to create a new component that will allow us to add and edit events. In order to achieve both operation reusing the same template, we will be passing the event id parameter through the URL when editing an event and fill the form with the event details. Contrarily when we will be adding a new event we will pass an empty/null event id. In that case the from fields will be empty and the user will need to complete it with the new event to add. 
+** Now we are going to create a new component that will allow us to add and edit events. In order to achieve both operation reusing the same template, we will be passing the event id parameter through the URL when editing an event and fill the form with the event details. Contrarily when we will be adding a new event, we will pass an empty/null event id. In that case the from fields will be empty and the user will need to complete it with the new event to add. 
 
 
 * Edit the event.service.ts and add the methods 'addEvent' and 'updateEvent'that will save our event in the db using the POST method or update the event using the PUT method.
@@ -319,7 +319,7 @@ import { MatInputModule } from "@angular/material/input";
 ```
 
 
-* Copy and paste the following code in add-edit-event.component.html. As you can see we are using a form an the <a href="https://material.angular.io/components/form-field/overview">mat-form-field</a> form Angular Material. The form is linked to 'addEditForm', a variable of type FormGroup declared in the controller, that will share its properties with the form fields through the formControlName. Furthermore, we have the 'save' button that will submit the form.
+* Copy and paste the following code in add-edit-event.component.html. As you can see, we are using a form an the <a href="https://material.angular.io/components/form-field/overview">mat-form-field</a> form Angular Material. The form is linked to 'addEditForm', a variable of type FormGroup declared in the controller, that will share its properties with the form fields through the formControlName. Furthermore, we have the 'save' button that will submit the form.
 
 ```javascript
 <div class="container">
@@ -366,7 +366,7 @@ import { MatInputModule } from "@angular/material/input";
 
 ```
 
-* Change the add-edit-event.component.ts as following. We are reading the parameter id that we are getting through the URL and decide then if we are adding or editing a new event. Then we are creating the form 'addEditForm' (previously we need to import 'FormBuilder' and 'FormGroup' in order to declare it)  and then declare and set their properties and values when required (in case that we are editing an event). Finally we have the 'submit()' method that will add or update the event through the 'EventService'.
+* Change the add-edit-event.component.ts as following. We are reading the parameter id that we are getting through the URL and decide then if we are adding or editing a new event. Then we are creating the form 'addEditForm' (previously we need to import 'FormBuilder' and 'FormGroup' in order to declare it) and then declare and set their properties and values when required (in case that we are editing an event). Finally we have the 'submit()' method that will add or update the event through the 'EventService'.
 
 
 ```javascript
@@ -572,15 +572,15 @@ Save all the changes. The application should allow you to delete events now.
 
 ## Login and Signup
 
-Now, we're going to introduce an important angular functionality: *router guards*. Before we need to finish the two last menu options  (login and profile). The first is an important and usually complex process which include the signup process. We will make it in order to better explain the *route guards* functionality as this is one of the main functionalities where the "route guards" are applied.
+Now, we're going to introduce an important Angular functionality: *router guards*. Before that, we need to finish the two last menu options (login and profile). The first is an important and usually complex process which include the signup process. We will make it in order to better explain the *route guards* functionality as this is one of the main functionalities where the "route guards" are applied.
 
-To do it easier we won't implement the real login/signup process instead we are going to create a simple collection in our db.json where we will save our users locally. 
+To do it easier we won't implement the real login/signup process instead we are going to create a simple collection in our *db.json* where we will save our users locally. 
 
-> **_Side Note:_** The real process implies a backend and other concepts server-side related (tokens, federations, identities...), so we will leave this for other future Openathons.
+> **_Side Note:_** The real process implies a backend and other concepts server-side related (tokens, federations, identities...), so we will leave this for other Openathon V.
 
-We already have the login component and his route but not the signup component (and his route). Since the signup is a one-time process related with the login process, we are going to create the signup component inside the login folder. Do you remember how do it?...
+We already have the login component and its route but not the signup component (nor its route). Since the signup is a one-time process related with the login process, we are going to create the signup component inside the login folder. Do you remember how to do it?...
 
-If you've done well two things happened: 
+If you've done it properly, two things happened: 
 * The creation of a new *signup* folder inside *login* folder (please check it yourself).
 * A new import inside *login.module.ts* which looks like:
 
@@ -610,11 +610,11 @@ export class LoginModule { }
 
 In this file, one more thing happened. In order to have access to other components from SharedModule (as Angular Material) we've imported the SharedModule too.
 
-Although the login/signup process is simple in our app (and ready only for local development), if you don't have experience it can be a bit messy so the following steps will be explained little by little.
+Although the login/signup process is simple in our app (and ready only for local development), if you don't have enough experience, it can be a bit messy so the following steps will be explained step by step:
 
 ### User Service
 
-As the best practices said... we are going to create a new service to manage the user data from our API and be able to inject it into the components that need it.
+As the best practices said... we are going to create a new service to manage the user data from our API to be able to inject it into the components that need it.
 
 ```bash
 ng g service core/user 
@@ -627,7 +627,7 @@ We will need the next methods:
 * logout: To logout.
 * checkUser: To check if we are logged when we need to know it.
 
-The mechanics of these methods to communicate with the API is the same as we seen in event.service through the Angular built-in HttpClient service. In some responses we've added a *map* rxjs operator in order to manage this response before we passed it to the observers (components in our case) which consume it. For example in this piece of code from the login method:
+The mechanics of these methods to communicate with the API is the same as we have seen in event.service through the Angular built-in HttpClient service. In some responses we've added a **map** *RxJS* operator in order to manage the response before we pass it to the observers (components in our case) which will consume it. For example, in this piece of code from the login method:
 
 ```javascript
 ...
@@ -641,13 +641,13 @@ map(us => {
 ...
 ```
 
-We're taking the server response and if this response has an *email* property we are sure that the response is correct and we save the user in the local storage (to use it when and where we want). After, we run the *setUser* method to set the *isAuthenticated* variable according to the result (true if all is good) and be able to return this variable when someone ask us for the authentication of the user through public method *checkUser* method. 
+We're taking the server response and if this response has an *email* property we are sure that the response is correct, so we save the user in the local storage (to use it when and whenever we want). After that, we run the *setUser* method to set the *isAuthenticated* variable according to the result (true if all is good) and to be able to return this variable when someone ask us for the authentication of the user through public method *checkUser* method. 
 
-> **_Side Note:_**  Note that *setUser* method is private as we only need it in this service but *checkUser* is exposed to other components where we inject this service and we need it as public.
+> **_Side Note:_**  Note that *setUser* method is **private** as we only need it in this service but *checkUser* is exposed to other components where we inject this service and we need it as **public**.
 
-Like in the event service we create a *handleError* method. Please study the signup method, we are sure that you can understand it :)
+Like in the event service, we create a *handleError* method. Please study the signup method. We are sure that you can understand it :)
 
-At the end the service has to be like this:
+At the end, the service must be like next:
 
 ```javascript
 import { Injectable } from "@angular/core";
@@ -725,7 +725,7 @@ export class UserService {
       console.error("An error occurred:", error.error.message);
     } else {
       // The backend returned an unsuccessful response code.
-      // The response body may contain clues as to what went wrong,
+      // The response body may contain clues about what went wrong,
       console.error(
         `Backend returned code ${error.status}, ` + `body was: ${error.error}`
       );
@@ -754,7 +754,7 @@ import { UserService } from "./user.service"; // <-- NEW
 export class CoreModule {}
 ```
 
-Now, like we did with the event data we nee to create a data model for the *User*. Note that we already imported it into the *user.service.ts*.
+Now, like we did with the event data, we need to create a data model for the *User*. Note that we already imported it into the *user.service.ts*.
 
 ```bash
 ng g interface models/user
@@ -772,9 +772,9 @@ export interface User {
 
 ### Signup component
 
-We already have our service ready to be used in somewhere. Now, we will set up the first thing anyone have to do for manage our private zones (as create a event), the signup process. 
+We already have our service ready to be used in anyplace. But first we need to prepare for managing our private zones with a signup process. 
 
-The signup component have to show a form to the user asking him for the data we will need on the registration process (email and password in our case). After that, the form have to be sent to the API in order to create a new user. You already know the code needed to do this. The *signup.component.ts* should looks like:
+The signup component has to show a form to the user asking him for the data we will need on the registration process (email and password in our case). After that, the form has to be sent to the API in order to create a new user. You already know the code needed to do this. The *signup.component.ts* should looks like:
 
 ```javascript
 import { Component, OnInit } from '@angular/core';
@@ -846,7 +846,7 @@ In order to pick up the data from user we need the html view like this:
 </div>
 ```
 
-To show a minimum style we can set up the *signup.component.scss* like this for example:
+To show a minimum style we can set up the *signup.component.scss* like this, for example:
 
 ```css
 .container {
@@ -864,7 +864,7 @@ To show a minimum style we can set up the *signup.component.scss* like this for 
 }
 ```
 
-We won't set up any signup link in the tool bar. Instead of this, we will send the user to the login page, if the user isn't still a registered user, we let him the opportunity to signup from the login view.
+We won't set up any signup link in the tool bar. Instead of this, we will send the user to the login page, if the user isn't still a registered user, we let him the opportunity to sign up from the login view.
 
 <p align="center">
     <img style="border: 1px solid gray" src="./resources/signup_link.png"  width="850px">
@@ -884,12 +884,12 @@ import { SignupComponent } from "./login/signup/signup.component";
 ...
 ```
 
-> **_Side Note:_**  If you aren't sure of how do it, you always can see it inside the app folder of this lab.
+> **_Side Note:_**  If you aren't sure about how do it, you always can have a look to the app folder of this lab.
 
 
 ### Login component
 
-This component is very similar to the signup component. It need to pick up the email and password and send them to the correct API endpoint through the user Service, where they will be checked with our database (db.json in our case) in order to know if this user exists and the credentials are correct. Let see how the files are:
+This component is very similar to the signup component. It needs to pick up the email and password and send them to the correct API endpoint through the user Service, where they will be checked in our database (db.json in our case) in order to know if this user exists and the credentials are correct. Let’s see how the files look like:
 
 The *login.component.ts* will be:
 
@@ -940,7 +940,7 @@ export class LoginComponent implements OnInit {
 }
 ```
 
-Note how we manage the messages and errors that come from the service. If the email is not present in db.json, the service will throw a error and this will be processed by our subscription:
+Note how we manage the messages and errors that come from the service. If the email is not present in db.json, the service will throw an error and this will be processed by our subscription:
 
 ```javascript
 // login.component.ts
@@ -949,7 +949,7 @@ Note how we manage the messages and errors that come from the service. If the em
 ...
 ```
 
-If the email is correct but not the password then the service is returning *Password not valid*...
+If the email is correct but not the password, then the service is returning *Password not valid*...
 
 ```javascript
 // user.service.ts
@@ -967,7 +967,7 @@ this.msgs = res;
 ...
 ```
 
-...using the *msgs* variable  present in the view as you can see in the next code snippet.
+...using the *msgs* variable present in the view as you can see in the next code snippet.
 
 The *login.component.html*:
 
@@ -1034,7 +1034,7 @@ Lastly the *login.component.scss*:
 }
 ```
 
-With this new components we can to signup and login in the app... but before we need to add the *users* model to our db.json to be ready to create new users. To do this, add inside db.json and next to the *events" model a empty users array like this:
+With this new components we can sign up and login in the app... but before we need to add the *users* model to our db.json to be ready to create new users. To do this, add inside db.json and next to the *events" model an empty users array like this:
 
 ```json
 {
@@ -1051,7 +1051,7 @@ Now you already could try the login/signup process. The next step will be to cre
 
 ### Knowing if the user is logged in
 
-To inform the user if is logged in we are going to change the toolbar to show the email (and a option to logout) when the  user is logged in. When the user is logged out we will show the usual *Login* link.
+To inform the user if is logged in we are going to change the toolbar to show the email (and an option to logout) when the user is logged in. When the user is logged out, we will show the usual *Login* link.
 
 Logged out:
 
@@ -1066,11 +1066,11 @@ Logged in:
     <img src="./resources/logged-in.png" width="450">
 </p>
 
-We will work in the toolbar component. The tricky part here is to know from the toolbar when the user change the status between logged in and logged out.  
+We will work in the toolbar component. The tricky part here is to know from the toolbar when the user changes the status between logged in and logged out.  
 
-Luckily Angular give us the lifecycle hooks. Lifecycle hooks are methods which allow us act in different moments of the components life.
+Luckily Angular give us the lifecycle hooks. Lifecycle hooks are methods which allow us act in different moments of the component’s life.
 
-These moments can be for example the component creation, the rendering, the destruction, when the data-bound change... For each moment Angular give us a method  like *ngInit*, *ngDestroy*, *ngDoCheck*...
+These moments can be for example the component creation, the rendering, the destruction, when the data-bound change... For each moment Angular give us a method like *ngInit*, *ngDestroy*, *ngDoCheck*...
 
 We aren't going to enter in more deeply explanations but since we want to know when the user do something outside of our component we will use *ngDoCheck* hook "to detect and act upon changes that Angular doesn't catch on its own" (as say Angular docs), that is, all other changes that the other hooks don't are aware.
 
@@ -1122,7 +1122,7 @@ After that, we run the checkUser function where we check if the user is authenti
 
 We also create the *logout* method to run this method in the *UserService* service (deleting the localStorage) and leading the user to the home page.
 
-To complete the work we need change the *toolbar.component.html* view:
+To complete the work, we need to change the *toolbar.component.html* view:
 
 ```html
 <mat-toolbar color="primary">
@@ -1140,17 +1140,17 @@ There is an event binding *(click)* to run the *logout()* method in *toolbar.com
 
 With this we already have the complete desired functionality.
 
-In the next section we're going to implement the authorization part to grant or deny permissions to  navigate to pages depending if hi's logged in or not.
+In the next section we're going to implement the authorization part to grant or deny permissions to navigate to pages depending if user is logged or not.
 
 ## Route Guards
 
-We're interested in deny the events creation and edition to the users not logged in. The best practices state that this has to be done in both backend and frontend. We will do in the frontend denying navigation to these views if the user is not logged in.
+We're interested in denying the events creation and edition to the users that are not logged in. The best practices state that this has to be done in both, backend and frontend. We will do it in the frontend now denying navigation to those views if the user is not logged in.
 
-To do this Angular has the Route Guards which control the navigation depending of the returned value from them (true or false). There are several guards to use depending of the scenario we have. We will use the most common which is *CanActivate*.
+To do this Angular has the Route Guards which control the navigation depending on their returned value (true or false). There are several guards to use depending on the scenario we have. We will use the most common which is *CanActivate*.
 
-If you remember the *app-routing.module.ts* the routes consist in objects with some properties, so far two: *path* and *component*, but there are more and one of them is the *canActivate* property which say "when we navigate to this route, first of all check this method (the guard method) and if the returned value from it is *false* deny the navigation to the view".
+If you remember the *app-routing.module.ts* the routes consist on objects with some properties, so far two: *path* and *component*, but there are more, and one of them is the *canActivate* property which says "when we navigate to this route, first of all check this method (the guard method) and if the returned value from it is *false* deny the navigation to the view".
 
-We will set up the guard in a different file named *auth-guard.service.ts" which have to be imported to the routing module to be used (as always we do). The *app-routing.module.ts* will be now:
+We will set up the guard in a different file named *auth-guard.service.ts" which have to be imported in the routing module to be used (as always we do). The *app-routing.module.ts* will be now:
 
 ```javascript
 import { NgModule } from "@angular/core";
@@ -1187,13 +1187,11 @@ const routes: Routes = [
 export class AppRoutingModule {}
 ```
 
-We see how we import the new file *auth-guard.service* (as a service) and we declare it in the *providers* property of the module (as all services). The AuthGuard will be the name of the class and will be which the *canActivate* will have as value to check the authorization.
+We see how we import the new file *auth-guard.service* (as a service) and we declare it in the *providers* property of the module (as all services). 
 
-Note that we also set up the pro  
+Now we will create the *auth-guard.service.ts" file inside of the core folder like this:
 
-Now we will create the *auth-guard.service.ts" file inside of core folder like this:
-
-> **_Side Note:_** We can also create the guard with *ng g guard  [nameOfGuard]* cli command but this time we will do from the beginning.
+> **_Side Note:_** We can also create the guard with *ng g guard  [nameOfGuard]* cli command but this time we will do it from scratch.
 
 ```javascript
 import { Injectable } from '@angular/core';
@@ -1225,7 +1223,7 @@ export class AuthGuard implements CanActivate {
 }
 ```
 
-We realize that is a service injectable (note *@Injectable*) and that we have to implement an interface for the *canActivate* guards:
+We realize that is an injectable service (note *@Injectable*) and we have to implement an interface for the *canActivate* guards:
 
 ```javascript
 ...
@@ -1233,13 +1231,13 @@ export class AuthGuard implements CanActivate {
 ...
 ```
 
-This interface forces us to implement a method named *canActivate()* which in our case will return a boolena depending of the result of the *checkLogin* method. This method uses the *UserService* service to check in the user is logged in through *checkUser* (which we already know). If the checking is false we send the user to the *login* view but if the result is true we return the *true* value to the routing and the view can be showed.
+This interface forces us to implement a method named *canActivate()* which in our case will return a Boolean depending on the result of the *checkLogin* method. This method uses the *UserService* service to check if the user is logged in through *checkUser* (which we already know). If the checking is false, we send the user to the *login* view. If the result is true, we return the *true* value to the routing and the view can be shown.
 
 > **_Side Note:_** The <a href="https://angular.io/api/router/CanActivate" target="_blank">CanActivate</a> interface has a signature with several arguments and ca be more complex depending of our context. In this case we are using the basic needed for us.
 
 ## The Profile view
 
-The last view to finish the whole toolbar links is the Profile view. It will be very simple since we don't have much data in our user model.
+The last view required to finish the whole links toolbar is the Profile view. It will be very simple since we don't have much data in our user model.
 
 We will show the *id* (automatically created) and the *email*. For security reasons we won't show the password.
 
