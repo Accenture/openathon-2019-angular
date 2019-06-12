@@ -4,7 +4,7 @@
 
 # Lab 02 - Angular Basics
 ## Objectives and Outcomes
-This lab offers a quick introduction to Angular directives. Beside we'll look at how to display data from our components and allow the user to interact with the application throught an event.
+This lab offers a quick introduction to Angular directives. Beside we'll look at how to display data from our components and allow the user to interact with the application through an event.
 
 * Work with structural directives
 * Use different data binding methods - data flow from component to template
@@ -16,7 +16,7 @@ Directives	give	instructions	to	Angular	on	how	to	render	the	templates	to	the	DO
 
 * **Components** directives with a template.
 * **Structural** directives change the DOM layout by adding and removing DOM elements.
-* **Attribute** directives change the appearance or behavior of an element, component, or another directive.
+* **Attribute** directives change the appearance or behaviour of an element, component, or another directive.
 
 
 ## Structural Directives
@@ -92,7 +92,7 @@ ng g component event-list
 
 ```
 
-Now we are going to create the event model. In this file we are going to define the event's properties, it is basically a blueprint that will help us when we create new varibles of type event.
+Now we are going to create the event model. In this file we are going to define the event's properties, it is basically a blueprint that will help us when we create new variables of type event.
 
 Create a folder under src/app named ‘models’ then inside of it create a file named ‘event.ts’
 <p align="center">
@@ -184,7 +184,7 @@ export class EventListComponent implements OnInit {
 }
  
 ```
-In order to display the event list we will use the <a href="https://material.angular.io/components/list/overview">mat-list</a> component from Angular Material. 
+In order to display the event list, we will use the <a href="https://material.angular.io/components/list/overview">mat-list</a> component from Angular Material. 
 Delete the content from event-list.component.html and copy and paste the following code.
 
 ```javascript
