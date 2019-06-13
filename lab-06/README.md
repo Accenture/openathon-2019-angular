@@ -23,20 +23,20 @@ For example, thinking in our app if we would like to create breadcrumbs (see sid
 
 
 
-> **_Side Note:_** Don't you know what the breadcrumb is? The next image illustrate what this is. It's a simple way to see where are you in a web app. They locate the page where you are (Home / Tutorials / Drawing in the next picture).
+> **_Side Note:_** Don't you know what the breadcrumb is? The next image illustrates what this is. It's a simple way to see where you are in a web app. They locate the page where you are (Home / Tutorials / Drawing in the next picture).
 
 <p align="center">
     <img src="./resources/breadcrumbs.jpg" width="400">
 </p>
 
-To do this Angular has several options. We can pass data from parents to children, we can make a Service to inject data where we want... All of these solutions are good, but they solve particular situations or perhaps a broader situation with more work. At the end it is about managing the state and when a part of the app change... other parts have to know these changes.
+To do this Angular has several options. We can pass data from parents to children, we can make a Service to inject data where we want. All of these solutions are good, but they solve particular situations or perhaps a broader situation with more work. At the end it is about managing the state and when a part of the app changes other parts have to know these changes.
 
-I'm sure that you've realized how many situations as this can happen in an app: to do click in one button and react to this in other part, move the cursor and something happen in a sidebar, to do click in a link and change de style of the view, todo click and show data in the right side, go back and show the same data from the API that before... we present you... our friend, the *Central State* of the app, known in some context as Redux and in the Angular world as NgRx/Store.
+I'm sure that you've realized how many situations as this can happen in an app: click in one button and react to this in other part, move the cursor and something happen in a sidebar, click in a link and change de style of the view, click and show data in the right side, go back and show the same data from the API that before. We introduce you our friend, the *Central State* of the app, known in some context as Redux and in the Angular world as NgRx/Store.
 
 Our friend *central state* will know and manage all state we want to manage and are important for us.
 
 
-> **_Side Note:_** There's a lot to talk about state management. You can start for the <a target="_blank" href="https://facebook.github.io/flux/">Flux</a> and the init of the solution to this problem created by Facebook. After that, you can lear something about <a target="_blank" href="https://redux.js.org/introduction/getting-started">Redux</a> a popular library. We will only focus on the mechanism used by Angular, the NgRx/Store library.
+> **_Side Note:_** There's a lot to talk about state management. You can start for the <a target="_blank" href="https://facebook.github.io/flux/">Flux</a> and the solution from Facebook to this issue. After that, you can learn something about <a target="_blank" href="https://redux.js.org/introduction/getting-started">Redux</a> a popular library. We will only focus on the mechanism used by Angular, the NgRx/Store library.
 
 ## The Central State and NgRx/Store
 
@@ -50,22 +50,21 @@ We could think of the Central State as a place where:
 
 NgRx is the library created inside the Angular community to manage a central state which is commonly named the *single source of truth*.
 
-The library uses intensively the reactive library RxJS which you already know a little. This means that you have to have a good understanding of reactive programming using observables. That doesn't mean that you have to study deeply the RxJS at this moment, we are going to go slow and if you need some more grasp out of the scope of this lab we give you external resources.
+The library uses intensively the reactive library RxJS which you already know a little. This means that you need to have a good understanding of reactive programming using observables. That doesn't mean that you have to study deeply the RxJS at this moment, we are going to see the basic concepts but if you would like to learn more have a look at the external resources.
 
-Our application will change very little his functionality but, we said, we are going to change the architecture... it will be a deep change inside the app.
 
 
 ## Architecture
 
-There are several pieces of the Central State Architecture and other contextual libraries to apply difference functionalities to it, but we are going to focus on the minimum needed but completely functional for our app.
+There are several pieces of the Central State Architecture and other contextual libraries to apply different functionalities to it, but we are going to focus on the minimum needed for our app.
 
 The basic Architecture consists of two main actors. *Actions* and *Reducers*.
 
-Actions are unique events that happen throughout your app (mouse click, requests, external interactions...). When an action happens, we will send it to the *Reducer* (it can go to another place named *Effects* but we talk about this later) and the *Reducer* will change the state as necessary depending on the type of the action. So, the *Reducer* is the only place where the state of the app will change.
+Actions are unique events that happen throughout your app (mouse click, requests, external interactions...). When an action happens, we will send it to the *Reducer* (it can go to another place named *Effects* but we talk about this later) and the *Reducer*  will change the state as necessary depending on the type of the action. So, the *Reducer* is the only place where the state of the app will change.
 
-The *Reducers* are pure functions so they aren't really changing the state but making a copy of the existing state and changing one or more properties on the new state (if you know the mechanism of git control version, this will already be known to you).
+The *Reducers* are pure functions, so they aren't really changing the state but making a copy of the existing state and changing one or more properties on the new state (if you know the mechanism of git control version, this will already be known to you).
 
-The NgRx library gives us some help to do this. We have to create the actions by implementing the NgRx Action interface with a property *type* (mandatory) and another *payload* property (optional). The first is to tell the type which you will define and the second is to store the eventual data that entails the action. We will always create our actions so this way. Isn't that great?
+The NgRx library gives us some help to manage this. We have to create the actions by implementing the NgRx Action interface with a property *type* (mandatory) and another *payload* property (optional). The first is to tell the type which you will define and the second is to store the eventual data that entails the action. We will always create our actions so this way. Isn't that great?
 
 *Reducers* always wait until an action is dispatched so they can do their job. How are the *Actions* dispatched? The NgRx library gives us the *dispatch* method (through the *store* class) to dispatch Actions by creating a new copy of our Action class (remember that an Action is a class which implements the Action interface). Look how it's:
 
@@ -87,7 +86,7 @@ Take a look at this simple Architecture:
 
 ## Changing the architecture of our application
 
-Well, let's get our hands a little dirty. The first thing we have to think is about the new folder structure. Though there will only have a store (central, remember) we will split the store into logical parts to manage it easier (think about a big app with a big state to manage). Each part will be a feature or main aspect of our app so we are going to create a folder named *store* to host these parts. Each part will have their own Actions and *Reducers* and all of these parts we are going to gather in a file named *app.store.ts* which will pass all to our existing *app.module.ts" to inform to the app about our new store. The *app.store.ts* will live in the root since is a file to gather all.
+Well, let's get our hands a little dirty. The first thing we have to think is about the new folder structure. Though there will only have a store (central, remember) we will split the store into logical parts to manage it easier (think about a big app with a big state to manage). Each part will be a feature or main aspect of our app, so we are going to create a folder named *store* to host these parts. Each part will have their own Actions and *Reducers* and all of these parts are going to be gathered in a file named *app.store.ts* which will pass all to our existing *app.module.ts" to inform to the app about our new store. The *app.store.ts* will live in the root since it is a file to gather all.
 
 <p align="center">
     <img src="./resources/new_structure_store.png" width="250">
@@ -101,7 +100,7 @@ npm install @ngrx/store --save
 
 ## Central store to login
 
-Everything that we want to put in the store as an action that provokes changes in the state. In our case, we will add the action "logged" to change the toolbar link (login/logout) and to inform to the other parts of the app (if they want) that the user is logged in. We won't see any difference in the view but the way to manage this information will change to a more logical manner.
+We will put every action that makes a change in the state into the store. We will add the action "logged" to change the toolbar link (login/logout) and to inform the other parts of the app (the ones that we are interested in) that the user is logged in. We won't see any difference in the view but the way to manage this information will change in a more logical manner.
 
 Create a *login.actions.ts* file inside the *store/login* folder with this content.
 
@@ -165,11 +164,11 @@ export function reducer(state: State = initialState, action: login.Actions): Sta
 
 First, we import all exported members from *login.actions.ts*, after that, we define our state for login slice as an interface with the *logged* property which we want to check.
 
-> **_Side Note:_** Slice is  the name to refer to a portion of state. Remember that the state is one and unique, we only split it to make it more manageable.
+> **_Side Note:_** Slice is the name to refer to a portion of state. Remember that the state is one and unique, we only split it to make it more manageable.
 
-Since we have to set up an initial state to the store, we define a constant (*State* type) with a initial value (*false*).
+Since we have to set up an initial state to the store, we define a constant (*State* type) with an initial value (*false*).
 
-After that we create the reducer function which will make the work to change the state depending of the action. We manage this with a *switch* statement as we said before.
+After that, we create the reducer function which will make the work to change the state depending on the action. We manage this with a *switch* statement as we said before.
 
 The reducer function always has two arguments: *state* and *action*. The first is our state whit an initial value stated and the second is the action launched and which we are constantly hearing (thanks to the observables and the RxJs library). Inside the function, we select the kind of action, if this action is a *logon.LOGGED* type we set up the *logged* property form our state to a new value, the one which the *payload* property from the action brings.
 
@@ -382,11 +381,11 @@ Look at this line:
 this.isAuthenticated ? this.store.dispatch(new login.Logged(true)) : this.store.dispatch(new login.Logged(false))
 ```
 
-We dispatch de action with *true/false* payload depending of the authentication variable.
+We dispatch de action with *true/false* payload depending on the authentication variable.
 
-Now is the moment to take a look at the login.redux.ts. This action dispatched is listened from this file, our reducer, and you can see in it that we check the type action and if it's a *login.LOGGED* type we change the state with the  new *logged* property with a value equal to the payload from the action.
+Now is the moment to take a look at the login.redux.ts. The action dispatched is listened from this file, our reducer, and you can see in it that we check the type action and if it's a *login.LOGGED* type we change the state with the  new *logged* property with a value equal to the payload from the action.
 
-But where will this new state be listened from? The response is from where we want the action to change our app. In our app, from the menu tool bar since it's the place where our app reacts to the login action changing the layout (login/logout menu link). 
+But where will this new state be listened from? The response is from where we want the action to change our app. In our app, from the menu toolbar since it's the place where our app reacts to the login action changing the layout (login/logout menu link). 
 
 Refactor *toolbar.component.ts* file as following:
 
@@ -451,19 +450,19 @@ We have already cited something about *effects*. This is the next important thin
 
 To understand this we first need to understand the *immutability* and *side effects*. This is out of our scope in this lab but these are important programming concepts in general (not a javascript thing). What you need to know now about this is that normally you want to avoid side effects in your applications, that is whatever that have an impact out of the current scope. For example, a method that is changing variables out of his scope is a side effect and usually this is wrong because you are losing control of your app.
 
-> **_Side Note:_** Another mechanism we've set up to reach the immutability is when we are changing the store. We copy the whole store, not only changing the parts affected to these changes. But we said, this is out of scope. You can learn about these topics in a lot of places in the Internet, for example <a target="_blank" href="https://medium.com/dailyjs/the-state-of-immutability-169d2cd11310">here</a>.
+> **_Side Note:_** Another mechanism we've set up to reach the immutability is when we are changing the store. We copy the whole store, not only changing the parts affected by these changes. But we said that this is out of scope. You can learn about these topics in a lot of places in the Internet, for example <a target="_blank" href="https://medium.com/dailyjs/the-state-of-immutability-169d2cd11310">here</a>.
 
 One typical side effect is when launching some action and the app needs to make a request to our API. This is a side effect because it is out of our scope, the action in our scope is a click or perhaps a new view... but the side effect is a call outside the app which can come with an error or not... this not depends on us.
 
 In order to isolate these side effects, we need to listen to the actions before they reach the store to have the opportunity to react to it before changing the state. We are going to do this through the tools *RxJS* and *ngrx* provide us and we will implement it in our app setting up a new feature to filter the events result to show only the events we've created.
 
-This new feature will need to request our API with an http call (to bring the filtered results) and this will be the functionality we will implement as an effect.
+This new feature will need to request our API with an HTTP call (to bring the filtered results) and this will be the functionality we will implement as an effect.
 
-> **_Side Note:_** Please considere the functionality as a typical example of side effects, we aren't going to consider if this can be done better by other ways.
+> **_Side Note:_** Please consider the functionality as a typical example of side effects, we aren't going to consider if this can be done better by other ways.
 
 ### Preparing the app to the filter
 
-Our filter will do their work based on the *addedBy* property of the *User* model. If the *addedBy* value is our email, this event will be returned and showed. Also, we will design the visual style of the filter as a slide toggle. To do this, we will change the value stored in the *addedBy* property (now is a random value) to be our email and we will use the <a target="_blank" href="https://material.angular.io/components/slide-toggle/overview">*MatSlideToggleModule* Angular Material component</a> as our slide toggle. Also we will need a new request in the *event.service.ts* service in order to bring the filtered data.
+Our filter will do their work based on the *addedBy* property of the *User* model. If the *addedBy* value is our email, this event will be returned and showed. Also, we will design the visual style of the filter as a slide toggle. To do this, we will change the value stored in the *addedBy* property (now is a random value) to be our email and we will use the <a target="_blank" href="https://material.angular.io/components/slide-toggle/overview">*MatSlideToggleModule* Angular Material component</a> as our slide toggle. Furtheremore, we will need a new request in the *event.service.ts* service in order to bring the filtered data.
 
 To save our email we will modify the *onSubmit* method of the *add-edit-event.component.ts* which will be:
 
@@ -548,7 +547,7 @@ We will use the MatSlideToggleModule component in the *event-list.component.html
 </div>
 ```
 
-The *NEW/END NEW* block contains the new component. We store the model in *slideMyEvents* which tell us if the slide is activated or not and we run the *myEventsChange* method when the user changes the slide. Later we'll see this method in detail, now you can see the aspect of or new feature in the list events view.
+The *NEW/END NEW* block contains the new component. We store the model in *slideMyEvents* which tells us if the slide is activated or not and we run the *myEventsChange* method when the user changes the slide. Later we'll see this method in detail, now you can see the aspect of our new feature in the list events view.
 
 If you haven't noticed, you need the new component in our shared module in order to use it in the app, so in our *shared.module.ts* insert:
 
@@ -605,7 +604,7 @@ import "hammerjs";
 export class SharedModule {}
 ```
 
-Now we're going to create the new service method to get the filtered data in our *event.service.ts* (insert this new method). 
+Now we're going to create the new service's method to get the filtered data in our *event.service.ts* (insert this new method). 
 
 ```javascript
 ...
@@ -635,7 +634,7 @@ To the effect can take part in the app the action has to be created from the sto
 
 > **_Side Note:_** The *layout* name is only our election, you can name the parts of the state as you want (for example, *filters*), but it makes sense to name it to gather things with some similarity in their functions.
 
-Next we show you all parts of the new slice (that you already should know to make partially).
+Next, we show you all parts of the new slice (that you already should know to make partially).
 
 A new folder *layout* inside of *store* folder with three files (the last one is our new friend):  *layout.actions.ts*, *layout.redux.ts* and *layout.effects.ts*.
 
@@ -671,7 +670,7 @@ export class GetFilteredEventsError implements Action {
 export type Actions = GetFilteredEvents | GetFilteredEventsSuccess | GetFilteredEventsError;
 ```
 
-Typically, an http request effect will contain three actions to manage the whole request process: To make the request, to manage the success and to manage errors form the request (don't worry if you don't catch up the whole concept now, this will make more sense later). So we set up these three actions and export them. Note that the three have the optional *payload* as an initial property like the events action.
+Typically, an HTTP request effect will contain three actions to manage the whole request process: To make the request, to manage the success and to manage errors form the request (don't worry if you don't catch up the whole concept now, this will make more sense later). So we set up these three actions and export them. Note that the three have the optional *payload* as an initial property like the events action.
 
 ```javascript
 // layout.redux.ts
@@ -779,15 +778,15 @@ After the usual imports needed, we have the important thing.
 
 > **_Side Note:_** There are a lot of concepts from the observable pattern in this snippet. We only explain the necessary information.
 
-When an action is launched the effects are listening as we already said. The *Effect* annotation of *ngrx* is in charged of inform of this to the store. So the action comes to this effect and first the effect check if the actions are of the *GET_FILTERED_EVENTS* type. If so, it means that a http request of this type is launched from somewhere in the app and this effect can act.
+When an action is launched the effects are listening as we already said. The *Effect* annotation of *ngrx* is in charge of inform of this to the store. So the action comes to this effect and first the effect check if the actions are of the *GET_FILTERED_EVENTS* type. If so, it means that a HTTP request of this type is launched from somewhere in the app and this effect can act.
 
 The action, as we already should know, is an observable, that is, a stream of data and we have to manage this with the RxJs library and pipe it (*this.actions$.pipe*) to apply the different operators and methods from this library.
 
-First, we use *switchMap* operator to get the last stream of data (this operator stops the last data stream and get the new data stream since that we could have some chain request if for example the user does click continuously). We manage this data stream with a function. The function argument filter is the filter that the action will contain (we will see it in the calling method). We pass the filter *payload* to the *getFilteredEvents* method of the *eventService* since we know for sure that the intention with this method is calling to the API (remember that we already have seen before this method of the *event.service.ts* service).
+First, we use *switchMap* operator to get the last stream of data (this operator stops the last data stream and get the new data stream since that we could have some chain request if for example, the user does click continuously). We manage this data stream with a function. The function argument filter is the filter that the action will contain (we will see it in the calling method). We pass the filter *payload* to the *getFilteredEvents* method of the *eventService* since we know for sure that the intention with this method is calling to the API (remember that we already have seen before this method of the *event.service.ts* service).
 
 After that, we pipe the result to manage again. With *map* basically, we're getting a data string and transform it in other (is the same concept like the array map or collection map but with streams). If the *getFilteredEvents* method return data, this is a success and we launch a new action *GET_FILTERED_EVENTS_SUCCESS* with the result as payload (remember that an action is an object with *type* and *payload* properties). If the result is an error, we manage this whit *catchError* operator to launch the *GET_FILTERED_EVENTS_ERROR* action with the error as *payload*.
 
-Please, note an important concept at this point. We're returning new actions (with data) not data at all. It's important to understand that the effects don't ever touch the data/state, only the store change the state (this is the mantra "*only the store changes the state*") and therefore the effects launch more actions to communicate the results to the store. If you remember the reducer component of the layout, we already are managing the data/state from these actions (success and error).
+Please, note an important concept at this point. We're returning new actions (with data) not data at all. It's important to understand that the effects don't ever touch the data/state, only the store changes the state (this is the mantra "*only the store changes the state*") and therefore the effects launch more actions to communicate the results to the store. If you remember the reducer component of the layout, we already are managing the data/state from these actions (success and error).
 
 
 > **_Side Note:_** Note that we are using <a target="_blank" href="https://www.freecodecamp.org/news/js-diabetes-and-understanding-syntax-sugar-5de249ee9ebc/">syntactic sugar</a> form ES6 version of Javascript. In the *switchMap* operator we are returning the function result directly without the needed for the "return" word. And in the *map* operator we are launching a new action with an action object without the need of the same word by wrapping the object in parentheses.
@@ -866,12 +865,12 @@ import { PageNotFoundComponent } from "./page-not-found/page-not-found.component
 export class AppModule {}
  ```
 
- This is the way to say that the store takes into account to the new Effects. Now we're ready to set up our new actions to launch the effects.
+ This is the way to say that the store takes into account the new Effects. Now we're ready to set up our new actions to launch the effects.
 
 
 ### Launching actions with effects
 
-Remember that all these things we are doing is to create our new filter functionality. We already make the view *event-list.component.ts* before, now we're going to finish it with the *event-list.component.ts* modified to give it the new functionality:
+Remember that all these things we are doing are to create our new filter functionality. We already make the view *event-list.component.ts* before, now we're going to finish it with the *event-list.component.ts* modified to give it the new functionality:
 
 ```javascript
 import { Component, OnInit, OnDestroy } from "@angular/core"; // <-- NEW
@@ -944,9 +943,9 @@ export class EventListComponent implements OnInit {
 
 ```
 
-The *myEventsChange* is linked to the slide toggle in the view so this is the method to launch our new action with effect. There isn't any new in this code. We dispatch the *GetFilteredEvents* action as we have seen with the login case. Note the filter format to add it to the get url *addedBy= + userMail*, this will be the *payload* of the action.
+The *myEventsChange* is linked to the slide toggle in the view so this is the method to launch our new action with effect. There isn't any new in this code. We dispatch the *GetFilteredEvents* action as we have seen with the login case. Note the filter format to add it to the get URL *addedBy= + userMail*, this will be the *payload* of the action.
 
-The real important thing is that the action is launched of the same format but, inside the store this action is captured transparently by the effects and those are making the http request through the event service. All organized and centralized in the store. Our state is a solid, immutable and with side effects controlled. Isn't it wonderful?)
+The real important thing is that the action is launched of the same format but, inside the store this action is captured transparently by the effects and those are making the HTTP request through the event service. All organized and centralized in the store. Our state is a solid, immutable and with side effects controlled. Isn't it wonderful?)
 
 In this method, if the slide toggle is not activated (*this.slideMyEvents* is false) or the *user* is not present (the user is logged out), we can't use the filter and we will obtain the whole event list.
 
@@ -966,11 +965,11 @@ Now, you can try our new functionality to filter the events created by you. Reme
 
 ### Hide filter
 
-When the user is logged out, the filter ca still be used. To avoid this we can subscribe to the login store slice in order to know when the user is logged out and to be able to hide the filter.
+When the user is logged out, the filter can still be used. To avoid this we can subscribe to the login store slice in order to know when the user is logged out and to be able to hide the filter.
 
-We will also take this opportunity to unsubscribe of our subscriptions.
+We will also take this opportunity to unsubscribe our subscriptions.
 
-No the *event-list.component.ts* looks like:
+Now the *event-list.component.ts* looks like:
 
 ```javascript
 ...

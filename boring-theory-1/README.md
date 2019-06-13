@@ -68,7 +68,7 @@ When you decide to bet for a technology (and there are new Frontend technologies
 - who is behind it? will it last 1 year?
 - what's different from what already we have? Is it a new trend wave?
 
-> Ok, Angular had Google but what offered? Why was very popular?
+> Ok, Angular had Google but what offered? Why was it very popular?
 
 The keys were:
 * Easy **binding** of data to HTML elements.
@@ -76,7 +76,7 @@ The keys were:
 * **Client-side reusable components** very popular in server-side.
 *  **Dependency injection** also popular in enterprise applications.
 
-During two centuries, that is, 3 years in Frontend terms, Angular became one of the most popular Frontend technologies. But because of its popularity and the older JavaScript versions in that time (like ES5), developers were starting to run into **severe performance problems**. Why? because the overuse of the main original key benefits: **binding too many model objects to too many DOM elements.**
+During two centuries, that is, 3 years in Frontend terms, Angular became one of the most popular Frontend technologies. But because of its popularity and the older JavaScript versions in that time (like ES5), developers were starting to run into **severe performance problems**. Why? because of the overuse of the main original key benefits: **binding too many model objects to too many DOM elements.**
 
 When Angular performance problems were at its peak, **Facebook** released **React** in 2013 and **Vue** was released a bit lated by a single developer, **Evan You** backed in Patreon, in 2014.
 <p align="center">
@@ -95,7 +95,7 @@ Angular was still in a better position but to complicate things even more, *Goog
 
 That was the debacle for Angular: a new framework not compatible with previous versions, two new languages (TypeScript and Dart) not having clear which could be the official one… 
 
-> This situation gave a lot of Angular developers reasons to try another options. Also, to complicate it more, Angular 1.x was renamed to **Angular.js** while Angular 2 kept **Angular**.
+> This situation gave a lot of Angular developers reasons to try other options. Also, to complicate it more, Angular 1.x was renamed to **Angular.js** while Angular 2 kept **Angular**.
 
 <br/>
 
@@ -110,7 +110,7 @@ Luckily, Angular (Angular 2, not Angular.js) slowly started to recover but curre
 > [See npm trends](https://www.npmtrends.com/react-vs-@angular/core-vs-vue) for more information.
 
 <br/>
-Have a look to the main actors in Frontend history and when they appeared.
+Have a look at the main actors in Frontend history and when they appeared.
 
 <p align="center">
     <img src="./resources/jshistory.png" width="720">
@@ -163,7 +163,7 @@ Angular is packed together with a set of robust technologies and libraries, for 
 - **[TSLint](https://palantir.github.io/tslint/)**, extensible static analysis tool.
 - **[Webpack](https://webpack.github.io/)**, static module bundler.
 
-They are not the target of this training and we can't enter into each of then so I will let you a nice diagram architects like to show talking about **Angular Technology Stack**:
+They are not the target of this training and we can't enter into each of them so I will let you a nice diagram architects like to show talking about **Angular Technology Stack**:
 
 <p align="center">
     <img src="./resources/angular_ecosystem.png" width="720">
@@ -171,7 +171,7 @@ They are not the target of this training and we can't enter into each of then so
 
 <br/>
 
-> One colleague of mine explained some time ago that it’s nice to create diagrams full of boxes… and let others to implement them :) 
+> One colleague of mine explained some time ago that it’s nice to create diagrams full of boxes… and let others implement them :) 
 
 <br/>
 
@@ -218,7 +218,7 @@ A **[Single-Page Application](https://blog.angular-university.io/why-a-single-pa
 What generally happens is that the SPA framework (Angular, for example) intercepts the browser events and instead of making a new request to the server (a new document/page), requests some JSON or performs an action on the server but the page that the user sees is never completely wiped away, and behaves more like a desktop application.
 
 ## Dependency Injection
-**[Dependency Injection (DI)](https://angular.io/guide/dependency-injection)** is an application design pattern where users don't need to create instances by thenselves. *Is a way to create objects that depend on other objects*. A DI system (Angular DI, for example) supplies the dependent objects (called the dependencies) when it creates an instance of an object .
+**[Dependency Injection (DI)](https://angular.io/guide/dependency-injection)** is an application design pattern where users don't need to create instances by themselves. *Is a way to create objects that depend on other objects*. A DI system (Angular DI, for example) supplies the dependent objects (called the dependencies) when it creates an instance of an object .
 
 
 ## Modules

@@ -49,7 +49,7 @@ Once we have a little info about them, let's create a new Angular application na
 <br/>
 
 #### Step 1. Create the project
-Create a new folder in your computer and open a console/terminal there.
+Create a new folder on your computer and open a console/terminal there.
 Type in your first Angular Cli command using **ng** to invoke its project creation Wizard:
 
 ```sh
@@ -87,7 +87,7 @@ If all has worked fine, the application is served by your local **Node**. Open a
 ## Project Folder Structure
 Once we have the project created and all is working, it's important to understand what *Angular Cli* has created for us.
 
-In Visual Studio Code have a look to the project folder and file structure:
+In Visual Studio Code have a look at the project folder and file structure:
 
 <p align="center">
     <img src="./resources/folderStructure.png">
@@ -96,12 +96,12 @@ In Visual Studio Code have a look to the project folder and file structure:
 We have marked the main elements like configurations files for TSLint, TypeScript and Angular, the source code directory and the dependencies declaration file:
 - **e2e** folder: contains an end-to-end test project using **[Protractor](https://www.protractortest.org/#/)**.
 - **src** folder: our source files where we will work in.
-- **angular.json**: Angular Cli configuration defaults for all projects in the workspace, including configuration options for build, serve, and test tools that the CLI uses, such as TSLint, Karma, and Protractor. Here is the *prefix* **oevents** supplied when creating the project.
+- **angular.json**: Angular Cli configuration defaults for all projects in the workspace, including configuration options for a build, serve, and test tools that the CLI uses, such as TSLint, Karma, and Protractor. Here is the *prefix* **oevents** supplied when creating the project.
 - **package.json**: configures npm package dependencies that are available to all projects in the workspace. 
-- **tsconfig.json**: configures and customize the compiler options. Remembar that TypeScript is *"compiled"* to uggly-JavaScript.
+- **tsconfig.json**: configures and customizes the compiler options. Remember that TypeScript is *"compiled"* to ugly-JavaScript.
 - **tslint.json**: default TSLint configuration for apps in the workspace.
 
-> We recommend to spend some time to check those files and folders. It's important to understand how Angular Framework works.
+> We recommend spending some time to check those files and folders. It's important to understand how Angular Framework works.
 
 #### Have a look now to src folder
 
@@ -110,7 +110,7 @@ We have marked the main elements like configurations files for TSLint, TypeScrip
 </p>
 
 > Do you remember the old times main.c or main.java?
-In Angular we have **main.ts** :) and **index.html**
+In Angular, we have **main.ts** :) and **index.html**
 
 Same as before: please spend some time to analyse those files.
 
@@ -121,7 +121,7 @@ We are going to analyse now the **Root Module**.
 
 It is the main **Angular Module**. By default is called AppModule *app.module.ts* and loads the application and its dependencies.
 
-Do you remember the theory about **Modules**? Have a look again to what we defined in [Angular Modules](../boring-theory-1##Modules).
+Do you remember the theory about **Modules**? Have a look again at what we defined in [Angular Modules](../boring-theory-1##Modules).
 
 A basic **Root Module looks** like:
 <p align="center">
@@ -193,7 +193,7 @@ Open the file landing-page.component.ts:
 
 Finally, notice the declaration of the **TypeScript component Class**: *LandingPageComponent*. 
 
-Remember that when we've created the project we specified the '**oevents**' prefix. This prefix will be used by the Angular Cli to compose the component selector names. As we can see in this particular case, we have created the 'landing-page' component and if you check the landing-page.component.ts file, you will see that the selector name is '**oevents-landing-page**'. In addition in this file we can see that Angular Cli uses the UpperCamelCase or PascalCase style to name the class '**LandingPageComponent**'.
+Remember that when we've created the project we specified the '**oevents**' prefix. This prefix will be used by the Angular Cli to compose the component selector names. As we can see in this particular case, we have created the 'landing-page' component and if you check the landing-page.component.ts file, you will see that the selector name is '**oevents-landing-page**'. In addition in this file, we can see that Angular Cli uses the UpperCamelCase or PascalCase style to name the class '**LandingPageComponent**'.
 
 ### Changing the view
 It's fine to have a default view but we want to adapt it to our needs.
@@ -261,7 +261,7 @@ After those changes, our new landing page should appear in the browser like:
 
 ## Angular Material 
 
-Angular Material allow is to create beautiful and modern Angular applications. You know how important is the UI look&feel and we need something to help us.
+Angular Material allows you to create beautiful and modern Angular applications. You know how important is the UI look&feel and we need something to help us.
 
 Angular Material is a third-party package used on Angular projects to facilitate the development process through reutilization of common components like Cards, beautiful Inputs, Data Tables, and so on. The list of available components is big and continues to grow as we speak. So, for a full reference of components with examples, check the [Official website](https://material.angular.io/).
 
@@ -389,7 +389,7 @@ Check your localhost and the result should be:
 
 
 
-And that's all for now. With this introduction we have revisited main concepts like modules and components. We have created a project and added some Angular Material components as the first steps for the **Open Events** app we are going to expand in the next laboratories.
+And that's all for now. With this introduction, we have revisited main concepts like modules and components. We have created a project and added some Angular Material components as the first steps for the **Open Events** app we are going to expand in the next laboratories.
 
 <br/>
 

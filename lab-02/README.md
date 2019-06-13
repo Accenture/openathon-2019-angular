@@ -12,7 +12,7 @@ This lab offers a quick introduction to Angular directives. Beside we'll look at
 
 # Directives
 
-Directives	give	instructions	to	Angular	on	how	to	render	the	templates	to	the	DOM. In the previous lab-01 we have seen the Component directive but there are two other kinds of	directives	in	Angular:	
+Directives give instructions to	Angular	on how to render the templates to the	DOM. In the previous lab-01 we have seen the Component directive but there are two other kinds of directives	in Angular:	
 
 * **Components** directives with a template.
 * **Structural** directives change the DOM layout by adding and removing DOM elements.
@@ -20,16 +20,16 @@ Directives	give	instructions	to	Angular	on	how	to	render	the	templates	to	the	DO
 
 
 ## Structural Directives
-Structural Directives allows you to change the view structure. In other words, it alters the layout by adding, replacing or removing elements in DOM. 
+Structural Directives allow you to change the view structure. In other words, it alters the layout by adding, replacing or removing elements in DOM. 
 * Examples of Structural Directives:
 
   ngIf 
-  ```javascript
+  ```html
     <div *ngIf=“dataExist”> The data exist </div>
   ```
 
   ngFor
-  ```javascript
+  ```html
     <li *ngFor="let color of colors">{{color.name}}</li>
   ```
 
@@ -39,22 +39,22 @@ Data Binding could be described as the data flow between the component and the t
 There are four ways of data binding: 
 
 * **Interpolation** is a one-way data binding from the data source to the view. We can use the string interpolation with the double curly braces '{{ }}'. 
-```javascript
+```html
   {{color.name}}
 ```
 
 * **Property binding**  is also a one way binding from the data source to the view, allowing you to change value anytime at the component level. It defines and updates a variable's value in component and displays it in the view. Interpolation is a special syntax that Angular converts into property binding. You can make use of it using the square brackets '[ ]'.
-```javascript
+```html
   [color] = "selectedColor"
 ```
 
-* **Event binding** is a one-way binding from the view to the data source. For example it could be a button click, that calls a function. The event action is set between parentheses '( )'
-```javascript
+* **Event binding** is a one-way binding from the view to the data source. For example, it could be a button click, that calls a function. The event action is set between parentheses '( )'
+```html
  (buttonClick) = "changeColor()"
 ```
 
 * **Two-way binding** is a two-way synchronized data binding between the component and the view. It could be said that is a combination of the event and property binding. Its syntax is between square brackets and parentheses inside of it, popular now it as banana in a box '[()]'.
-```javascript
+```html
   [(ngModel)] = "color.name"
 ```
 
@@ -72,18 +72,18 @@ There are four ways of data binding:
 
 
 # Pipes
-Pipes were used to be called filters in earlier Angular versions. A pipe takes data (integers, strings, arrays, and dates) as input and transforms it with the desired format as the output to be displayed int the browser. Angular has some built-in pipes for example: CurrencyPipe, DatePipe, UpperCasePipe, etc. In addition we can also create and  <a href="https://angular.io/guide/pipes#custom-pipes">custom our own pipes</a>.
+Pipes were used to be called filters in earlier Angular versions. A pipe takes data (integers, strings, arrays, and dates) as input and transforms it with the desired format as the output to be displayed in the browser. Angular has some built-in pipes for example: CurrencyPipe, DatePipe, UpperCasePipe, etc. In addition we can also create and  <a href="https://angular.io/guide/pipes#custom-pipes">custom our own pipes</a>.
 
 We can use more than one pipe at the same time as the following example that would display FRIDAY, APRIL 15, 1988
 
-```javascript
+```html
 {{ birthday | date | uppercase}}
 
 ```
 
 # Coding Time
 
-Now we are going to try to make use of some of these concepts in our applicacion. We are going to display an event list.
+Now we are going to try to make use of some of these concepts in our application. We are going to display an event list.
 
 Add a new component named event-list 
 
@@ -187,7 +187,7 @@ export class EventListComponent implements OnInit {
 In order to display the event list, we will use the <a href="https://material.angular.io/components/list/overview">mat-list</a> component from Angular Material. 
 Delete the content from event-list.component.html and copy and paste the following code.
 
-```javascript
+```html
 <div class="container">
   <mat-list>
     <mat-list-item *ngFor="let event of events">
@@ -199,7 +199,7 @@ Delete the content from event-list.component.html and copy and paste the followi
 ```
 Add the following in event-list.component.scss
 
-```javascript
+```css
 .container {
     display: flex;
     justify-content: center;
@@ -208,7 +208,7 @@ Add the following in event-list.component.scss
 ```
 Edit app.component.html and add:
 
-```javascript
+```html
 <oevents-event-list></oevents-event-list>
 ```
 <p align="center">
@@ -230,7 +230,7 @@ import { MatCardModule } from '@angular/material/card';
 ```
 Edit event-list.component.html to use mat-card and display the event details as following:
 
-```javascript
+```html
 <div class="container">
 
   <mat-list>
@@ -263,7 +263,7 @@ Edit event-list.component.html to use mat-card and display the event details as 
 
 Edit event-list.component.scss as follow.
 
-```javascript
+```css
 .container {
     display: flex;
     justify-content: center;
@@ -288,7 +288,7 @@ ng g component event-details
 ```
 
 Remove the following from event-list-component.html
-```javascript
+```html
 <mat-card *ngIf="selectedEvent" id="eventDetails">
     <mat-card-header>
       <mat-card-title>
@@ -308,7 +308,7 @@ Remove the following from event-list-component.html
 ```
 
 Copy and paste this code in event-details.componet.html
-```javascript
+```html
 <mat-card *ngIf="event" id="eventDetails">
   <mat-card-header>
     <mat-card-title>
@@ -329,7 +329,7 @@ Copy and paste this code in event-details.componet.html
 
 In event-list.component.html add a click event as follow 
 
-```javascript
+```html
 ...
 <mat-list-item *ngFor="let event of events" (click)="onSelectEvent(event)" >
 ... 
@@ -349,7 +349,7 @@ export class EventListComponent implements OnInit {
 
 ```
 
-In event-details.component.ts  import and add then input decorator to retrieve the event passed by event-list.
+In event-details.component.ts, import and add then input decorator to retrieve the event passed by event-list.
 
 ```javascript
 import { Component, OnInit, Input } from '@angular/core';
@@ -373,7 +373,7 @@ In event-details.component.scss add the following.
 
 Add the new event-details that we have created to be displayed in event-list.component.html
 
-```javascript
+```html
 <div class="container">
   ...
   <oevents-event-details [event]="selectedEvent"></oevents-event-details>

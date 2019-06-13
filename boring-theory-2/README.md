@@ -20,7 +20,7 @@ Code is my life, forget anything else!
 
 If you think this way, imagine the next scenario:
 
-> We want to sell a web site to a client. After some information exchange we tell the client the range of possible prices before entering into the details for a better estimation.
+> We want to sell a web site to a client. After some information exchange, we tell the client the range of possible prices before entering into the details for  better estimation.
 
 > Then, the client tells us that the son of a neighbor can do the same for half the price. We offer our advice against it not only because of losing a business opportunity but because the "neighbor’s son projects" typical endings… In the end, nothing can be done and you lost the client.
 
@@ -38,7 +38,7 @@ Imagine now which could be the most typical result…
   </details>
 <br/>
 
-Client gets something that is not fulfilling the expectations at all, in most of the cases not even finished… forget about that son pain trying to create something complex with the simplified and limited point of view of a coder *(I’m not talking about a developer, they are things completely different)…* and don’t talk about **reusability, security, extensibility, robustness, reliability, resilientness…**
+A client gets something that is not fulfilling the expectations at all, in most of the cases not even finished… forget about that son pain trying to create something complex with the simplified and limited point of view of a coder *(I’m not talking about a developer, they are things completely different)…* and don’t talk about **reusability, security, extensibility, robustness, reliability, resilientness…**
 <br/>
 
 > Sure! Nice and funny names that **smoke-sellers** use freely to try to sell the “same” I can do but far away more expensive - *That’s what I could say 20 years ago.*
@@ -80,7 +80,7 @@ I know that removing Stack Overflow access will reduce your code skill stats by 
 </p>
 <br/>
 
-Can you even see any mention to code? It's deep inside **Main Principles.**
+Can you even see any mention of code? It's deep inside **Main Principles.**
 
 Well, because the objective of this Openathon is Angular, I’ll focus on those Main Principles. I recommend to reach out Architects (real ones) if you want to know more.
 
@@ -100,7 +100,7 @@ We are not getting crazy, those are four of the main acronyms in software design
 
 > This is a complex subject we don’t pretend to study deeper. Have a look to their definitions, try to understand them, check the links and after your puzzle or poker face try to continue :)
 
-But now, seriously, try to have them present while designing and developing, or at least knowing that they exists and you can gain a lot considering them.
+But now, seriously, try to have them present while designing and developing, or at least knowing that they exist and you can gain a lot considering them.
 
 Firstly, we will start with the simple ones.
 
@@ -195,12 +195,12 @@ It's been heavy, isn't it?
 
 
 ## Code Quality
-After that acronyms indigestion it's important to remark now what Code Quality means. **Your code has QUALITY if:**
+After that acronyms indigestion, it's important to remark now what Code Quality means. **Your code has QUALITY if:**
 - Is documented for yourself and other developers.
 - Is tested manually and automatically.
-- Is extendible and the logic is break down in different layers and classes.
+- Is extendible and the logic breaks down in different layers and classes.
 - Is secure, data is encrypted, user input data is validated, libraries and frameworks are up to date.
-- Is unified, following coding guidelines and oficial styles.
+- Is unified, following coding guidelines and official styles.
 - Is clear, easier to debug and maintain.
 
 <br/>
@@ -208,21 +208,21 @@ After that acronyms indigestion it's important to remark now what Code Quality m
 **And what the project gets in exchange if you have high quality code?**
 - Unifies code making it easier for new colleagues to incorporate to the project.
 - Easier to debug not only for another developer but for the author itself.
-- Produces robust and secure code.
-- Reduce software maintenance cost.
+- Produces a robust and secure code.
+- Reduce software maintenance costs.
 - Generates quality product.
 
 
 <br/>
 
 ### Code Quality Rules
-You must define your own rules depending on your needs, but once they are defined, force compliance!
-Next is a list of a real project quality rules as an example:
+You must define your own rules depending on your needs, but once they are defined force compliance!
+Next is a list of real project quality rules as an example:
 
 **Project *CWB* (fictitious name). All development tasks must follow the next rules:**
 - Apply the TypeScript coding guidelines: [Microsoft Coding guidelines](https://github.com/Microsoft/TypeScript/wiki/Coding-guidelines). 
 - Use long and accuracy descriptive names, for classes, methods, constants, variables…
-- Comments will follow JSDoc conventions. Comment all methods and classes, also all specific piece of code that requires explanation for future revisits or because of complexity.
+- Comments will follow JSDoc conventions. Comment all methods and classes, also all specific piece of code that requires an explanation for future revisits or because of complexity.
 - Create separate folders for each Ionic service group by logic.
 - Isolate and publish only the minimum required for each class.
 - Avoid to include any function or method that is not related to the class logic. Move them into a re-usable help class.
@@ -231,7 +231,7 @@ Next is a list of a real project quality rules as an example:
 - Use let and const. Do not use var.
 - Use double quotes always.
 - Use === operator unless to compare with null or undefined.
-- Use const with enum for string-based values. Do not use plain strings to compare.
+- Use const with an enum for string-based values. Do not use plain strings to compare.
 - Once a big task has been finished, revisit it and apply refactorization whenever is possible.
 
 That's only a possible list. When you create a project with angular-cli wizard you have by default a **TSLint** configuration you can and should extend.
