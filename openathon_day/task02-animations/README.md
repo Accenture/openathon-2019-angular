@@ -171,7 +171,7 @@ trigger('myTrigger', [
 ...
 ```
 
-When *isShown* is *true* (showed) the *:enter* transition take effect and when is *false* (hidden) the *:leave* transition starts.
+When *isShown* is *true* (showed) the *:enter* transition take effect and when is *false* (hidden) the *:leave* transition starts. We have the first *style()* function to set up the start state and the second *style()* function (inside *transition()* function) to set up the ending state and what properties will be animated.
 
 ## The task
 
