@@ -1,4 +1,8 @@
+<!--Lab actualizado a Angular v11-->
 <div class="body">
-  <oevents-toolbar></oevents-toolbar>
-  <oevents-landing-page></oevents-landing-page>
+    <!--Imagino que la cabecera sera una constante en la página asi que la mantengo en el componente principal como un componente independiente-->
+    <oevents-toolbar></oevents-toolbar>
+    <!--El resto del contenido de la pagina para no tener que añadir cada uno de los componentes, le asigno una ruta general en app-routing.module.ts para ir
+    añadiendo los componentes sin alterar el router-outlet que he añadido con cada componente añadido-->
+    <router-outlet></router-outlet>
 </div>
