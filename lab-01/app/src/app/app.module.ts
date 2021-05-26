@@ -12,7 +12,6 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatListModule } from '@angular/material/list';
 
 import 'hammerjs';
-
 @NgModule({
   declarations: [
     AppComponent,
