@@ -1,0 +1,21 @@
+.container {
+  display: flex;
+  flex-flow: column;
+  text-align: center;
+}
+
+.title,
+.subtitle,
+.message {
+  padding: 1rem;
+}
+
+.title {
+  color: #8bc34a;
+}
+
+.subtitle {
+}
+
+.message {
+}
