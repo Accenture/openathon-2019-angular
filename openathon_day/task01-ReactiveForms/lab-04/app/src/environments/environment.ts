@@ -4,9 +4,13 @@
 
 export const environment = {
   production: false,
-  apiURL: "http://localhost:3000/"
+  apiURL: "http://localhost:3000/",
 };
 
+export const validationMessages = {
+  required: "The field is required",
+  length: "The length is not valid",
+};
 /*
  * For easier debugging in development mode, you can import the following file
  * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.

@@ -1,0 +1,71 @@
+<div class="main__container">
+  <h4 *ngIf="!sendedData">Set a cool event!</h4>
+  <h4 *ngIf="sendedData">Cool event created!</h4>
+  <form [formGroup]="addContact" (ngSubmit)="onSubmit()" action="">
+    <mat-form-field
+      [hintLabel]="addContact.get('title').pristine ? 'Min 2 characters' : ''"
+      appearance="fill"
+    >
+      <mat-label>Set title</mat-label>
+      <input
+        matInput
+        formControlName="title"
+        maxlength="25"
+        minlength="2"
+        placeholder="Title here"
+      />
+      <mat-error
+        *ngIf="eventModel['title']"
+        >{{ eventModel["title"] }}</mat-error
+      >
+      <mat-hint align="end"
+        >{{ addContact.get("title").value?.length || 0 }}/25</mat-hint
+      >
+    </mat-form-field>
+    <mat-form-field
+      [hintLabel]="
+        addContact.get('location').pristine ? 'Where is that...?' : ''
+      "
+      appearance="fill"
+    >
+      <mat-label>Set location</mat-label>
+      <input matInput formControlName="location" placeholder="Location here" />
+      <mat-error
+        *ngIf="eventModel['location']"
+        >{{ eventModel["location"] }}</mat-error
+      >
+      <mat-hint
+        *ngIf="
+          addContact.get('location').valid &&
+          !addContact.get('location').pristine
+        "
+        align="end"
+      >
+        <mat-icon>check</mat-icon>cool</mat-hint
+      >
+    </mat-form-field>
+    <mat-form-field
+      [hintLabel]="
+        addContact.get('description').pristine ? 'Min 10 characters' : ''
+      "
+      appearance="fill"
+    >
+      <mat-label>Set description</mat-label>
+      <textarea
+        matInput
+        formControlName="description"
+        maxlength="400"
+        minlength="10"
+        placeholder="Description here"
+      ></textarea>
+      <mat-error
+        *ngIf="eventModel['description']"
+        >{{ eventModel["description"] }}</mat-error
+      >
+      <mat-hint align="end"
+        >{{ addContact.get("description").value?.length || 0 }}/400</mat-hint
+      >
+    </mat-form-field>
+    <button mat-button color="primary" type="submit" [disabled]="addContact.invalid">Submit</button>
+  </form>
+</div>

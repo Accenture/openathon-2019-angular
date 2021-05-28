@@ -1,3 +1,43 @@
-<p>
-  login works!
-</p>
+<div class="main__container">
+  <h4>Welcome back!</h4>
+  <form [formGroup]="loginForm" (ngSubmit)="userLogin()" action="">
+    <mat-card class="login__info" [ngClass]="{unsuccess__login: unSuccessLogin === true}"
+      >Incorrect credentials</mat-card
+    >
+    <mat-form-field
+      [hintLabel]="loginForm.get('name').pristine ? 'User name' : ''"
+      appearance="fill"
+    >
+      <mat-label>Set name</mat-label>
+      <input
+        matInput
+        formControlName="name"
+        maxlength="25"
+        minlength="2"
+        placeholder="Name here"
+      />
+      <mat-error *ngIf="loginFormErr['name']">{{
+        loginFormErr["name"]
+      }}</mat-error>
+    </mat-form-field>
+    <mat-form-field
+      [hintLabel]="loginForm.get('password').pristine ? 'Password' : ''"
+      appearance="fill"
+    >
+      <mat-label>Set password</mat-label>
+      <input type="password" matInput formControlName="password" placeholder="Password here" />
+      <mat-error *ngIf="loginFormErr['password']">{{
+        loginFormErr["password"]
+      }}</mat-error>
+    </mat-form-field>
+
+    <button
+      mat-button
+      color="primary"
+      type="submit"
+      [disabled]="loginForm.invalid"
+    >
+      Sign in
+    </button>
+  </form>
+</div>

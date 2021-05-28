@@ -15,9 +15,12 @@
     "typeRoots": [
       "node_modules/@types"
     ],
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "types": []
   }
 }

@@ -6,3 +6,15 @@ export interface Event {
   description: string;
   addedBy: string;
 }
+
+export function initializeEvent(): Event {
+  let newEvent: Event = {
+    id: "",
+    title: "",
+    location: "",
+    description: "",
+    addedBy: "",
+    date: new Date(),
+  };
+  return newEvent;
+}
