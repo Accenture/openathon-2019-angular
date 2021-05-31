@@ -1,6 +1,5 @@
 import { Component, OnInit } from "@angular/core";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
-import { Router } from "@angular/router";
 import { UserDataService } from "../core/user-data.service";
 import { validationMessages } from "../../environments/environment";
 import { initializeUser } from "../models/user";
@@ -14,11 +13,9 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   loginFormErr: Object = {};
   userService: UserDataService;
-  route: Router;
   unSuccessLogin: boolean = false;
-  constructor(userData: UserDataService, route: Router) {
+  constructor(userData: UserDataService) {
     this.userService = userData;
-    this.route = route;
     this.loginFormErr = initializeUser();
     this.loginForm = new FormGroup({
       name: new FormControl("", Validators.required),
@@ -66,24 +63,10 @@ export class LoginComponent implements OnInit {
     if (!this.loginForm) {
       return;
     }
-    let userExist = this.userService.userArray.filter((user) => {
-      if (
-        user.name === this.loginForm.get("name").value &&
-        user.password === this.loginForm.get("password").value
-      ) {
-        return user;
-      }
+    this.userService.logIn({
+      name: this.loginForm.get("name").value,
+      password: this.loginForm.get("password").value,
     });
-    if (userExist.length == 0) {
-      this.loginForm.get("password").markAsUntouched();
-      this.loginForm.get("password").markAsPristine();
-      this.loginForm.get("password").setValue("");
-      this.unSuccessLogin = true;
-    } else {
-      sessionStorage.setItem("user", userExist[0].name);
-      sessionStorage.setItem("user_id", userExist[0].id);
-      this.route.navigate(["/events/add-event"]);
-    }
   }
 
   ngOnInit() {}

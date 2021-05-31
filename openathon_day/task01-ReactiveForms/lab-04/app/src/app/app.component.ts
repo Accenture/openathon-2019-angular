@@ -1,6 +1,4 @@
 import { Component, OnInit } from "@angular/core";
-import users from "../../../users.json";
-import { UserDataService } from "./core/user-data.service";
 
 @Component({
   selector: "oevents-root",
@@ -8,11 +6,7 @@ import { UserDataService } from "./core/user-data.service";
   styleUrls: ["./app.component.scss"],
 })
 export class AppComponent implements OnInit {
-  constructor(userData: UserDataService) {
-    users.users.forEach((userInfo) => {
-      userData.userArray.push(userInfo);
-    });
-  }
+  constructor() {}
   title = "open-events-front";
   ngOnInit(): void {}
 }
