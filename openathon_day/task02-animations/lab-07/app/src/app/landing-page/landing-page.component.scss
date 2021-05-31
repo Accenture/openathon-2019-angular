@@ -1,0 +1,49 @@
+@import '../shared/styles/colors';
+@import '../shared/styles/variables';
+
+
+.container {
+  @include container();
+  @include background('/assets/imgs/patt1.png', bottom, contain);
+  display: flex;
+  flex-flow: column;
+  text-align: center;
+}
+
+.logo {
+
+  img {
+    width: 250px;
+  }
+}
+
+.title {
+  color: $black;
+
+  h1 {
+    font-size: 2.2rem;
+    margin: 3rem 0 0 0;
+  }
+}
+
+.subtitle {
+
+  h2{
+    font-size: 2rem;
+    font-weight: 100;
+    margin-top: 0.3rem;
+  }
+}
+
+.message {
+  text-align: center;
+
+  p {
+    display: inline-block;
+    margin: 0;
+    font-size: 1.3rem;
+    font-weight: 300;
+    max-width: 600px;
+    line-height: 1.4;
+  }
+}

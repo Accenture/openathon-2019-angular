@@ -1,0 +1,17 @@
+{
+  "editor.tabSize": 2,
+  "editor.rulers": [90, 140],
+  "files.trimTrailingWhitespace": true,
+  "workbench.iconTheme": "material-icon-theme", // Following setting requires Material Icon Theme Extension
+  "editor.autoIndent": true,
+  "debug.openExplorerOnEnd": true,
+  "auto-close-tag.SublimeText3Mode": true, // Following setting requires Auto Close Tag Extension
+  "explorer.openEditors.visible": 0,
+  "editor.minimap.enabled": false,
+  "html.autoClosingTags": false,
+  "editor.formatOnType": true,
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "typescriptHero.imports.insertSemicolons": false, // Following setting requires TypeScriptHero Extension
+  "typescriptHero.imports.multiLineWrapThreshold": 90
+}

@@ -1,4 +1,5 @@
 import { Injectable } from "@angular/core";
+import { Router } from "@angular/router";
 import {
   ActivatedRouteSnapshot,
   CanActivate,
@@ -22,6 +23,8 @@ export class EventsGuardGuard implements CanActivate {
     if (sessionStorage.getItem("user")) {
       return true;
     } else {
+      let url: Router;
+      url.navigate(["login"]);
       return false;
     }
   }

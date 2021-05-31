@@ -118,10 +118,17 @@ export class AddEditFormComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     console.log(this.addContact);
+    // let test = {
+    //   test: "test",
+    //   numer: 0
+    // }
+    // let file = new Blob([JSON.stringify(test)], {type: "json"});
+    // let downLoadUrl = window.URL.createObjectURL(file);
+    // window.open(downLoadUrl);
   }
   ngOnDestroy(): void {
     if (this.addContact.valueChanges) {
-     this.addContact.valueChanges;
+      this.addContact.valueChanges;
     }
   }
 }
