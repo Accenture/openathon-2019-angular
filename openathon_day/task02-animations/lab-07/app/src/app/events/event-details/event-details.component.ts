@@ -4,12 +4,14 @@ import { ActivatedRoute } from "@angular/router";
 import { EventService } from "../../core/event.service";
 import { Router } from "@angular/router";
 import { ImagesService } from "../../core/images.service"
+import { animationTask } from "src/app/animations/animation/animation.component";
 
 
 @Component({
   selector: "oevents-event-details",
   templateUrl: "./event-details.component.html",
-  styleUrls: ["./event-details.component.scss"]
+  styleUrls: ["./event-details.component.scss"],
+  animations: [animationTask]
 })
 export class EventDetailsComponent implements OnInit {
   event: Event;

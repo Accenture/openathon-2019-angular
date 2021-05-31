@@ -5,11 +5,13 @@ import { EventService } from "../../core/event.service";
 import * as layout from '../../store/layout/layout.actions';
 import { User } from "../../models/user";
 import { SubscriptionLike } from 'rxjs'
+import { animationTask } from "src/app/animations/animation/animation.component";
 
 @Component({
   selector: "oevents-event-list",
   templateUrl: "./event-list.component.html",
-  styleUrls: ["./event-list.component.scss"]
+  styleUrls: ["./event-list.component.scss"],
+  animations: [animationTask]
 })
 export class EventListComponent implements OnInit, OnDestroy {
   events: Event[];

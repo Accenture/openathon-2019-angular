@@ -5,11 +5,13 @@ import { User } from "../../models/user";
 import { EventService } from "../../core/event.service";
 import { Router } from "@angular/router";
 import { ActivatedRoute } from "@angular/router";
+import { animationTask } from "src/app/animations/animation/animation.component";
 
 @Component({
   selector: "oevents-add-edit-event",
   templateUrl: "./add-edit-event.component.html",
-  styleUrls: ["./add-edit-event.component.scss"]
+  styleUrls: ["./add-edit-event.component.scss"],
+  animations: [animationTask]
 })
 export class AddEditEventComponent implements OnInit {
   addEditForm: FormGroup;
