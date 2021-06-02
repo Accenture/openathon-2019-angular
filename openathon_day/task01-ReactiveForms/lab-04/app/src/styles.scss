@@ -1,0 +1,33 @@
+/* You can add global styles to this file, and also import other style files */
+@import "@angular/material/prebuilt-themes/indigo-pink.css";
+
+* {
+  box-sizing: border-box;
+}
+
+.activeLink {
+  color: #f95151;
+}
+
+.main__container {
+  position: relative;
+  padding: 0px 20px;
+  width: 100%;
+}
+
+form {
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+mat-form-field {
+  display: block !important;
+  padding: 10px 0px !important;
+}
+
+h4 {
+  width: max-content;
+  margin-left: auto;
+  margin-right: auto;
+}

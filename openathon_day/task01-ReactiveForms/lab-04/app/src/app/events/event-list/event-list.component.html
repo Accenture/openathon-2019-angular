@@ -1,0 +1,8 @@
+<div class="container">
+  <mat-list>
+    <mat-list-item *ngFor="let event of events" (click)="onSelectEvent(event)">
+      <button mat-button>{{event.title}}</button>
+    </mat-list-item>
+  </mat-list>
+  <oevents-event-details [event]="selectedEvent"></oevents-event-details>
+</div>

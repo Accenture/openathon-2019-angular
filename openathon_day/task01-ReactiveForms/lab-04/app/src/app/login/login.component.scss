@@ -1,0 +1,12 @@
+.login__info {
+  user-select: none;
+  opacity: 0;
+  transition: opacity ease-in 0.3s;
+}
+.unsuccess__login {
+  opacity: 1;
+}
+mat-card {
+  background-color: rgba(247, 211, 211, 0.8);
+  color: red;
+}

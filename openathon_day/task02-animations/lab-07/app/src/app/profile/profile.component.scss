@@ -1,0 +1,22 @@
+// @import '../shared/styles/colors';
+@import '../shared/styles/variables';
+
+.container {
+  @include container();
+  @include background('/assets/imgs/patt5.png', center, contain);
+}
+
+.wrap {
+  display: flex;
+  justify-content: center;
+}
+
+.userData {
+  margin-top: 5rem;
+  padding: 1rem;
+  background-color: rgba(255,255,255,0.9);
+
+  h4 {
+    display: inline-block;
+  }
+}

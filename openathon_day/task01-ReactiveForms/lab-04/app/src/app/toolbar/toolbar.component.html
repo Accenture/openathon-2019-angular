@@ -1,0 +1,18 @@
+<mat-toolbar color="primary">
+  <a mat-button routerLink="/home" routerLinkActive="activeLink">Home</a>
+  <button mat-button [matMenuTriggerFor]="events" aria-label="event list">
+    <span>Events</span>
+  </button>
+  <mat-menu #events="matMenu">
+    <a [routerLink]="['/events', 'add-event']" routerLinkActive="activeLink" mat-menu-item>
+      <mat-icon>add</mat-icon>
+      <span>Add event</span>
+    </a>
+    <a routerLink="/events/event-list" routerLinkActive="activeLink" mat-menu-item>
+      <mat-icon>check</mat-icon>
+      <span>Check events list</span>
+    </a>
+  </mat-menu>
+  <a mat-button routerLink="/profile" routerLinkActive="activeLink">Profile</a>
+  <a mat-button routerLink="/login" routerLinkActive="activeLink">Login</a>
+</mat-toolbar>

@@ -1,0 +1,68 @@
+@import './fonts';
+
+
+/*********** Fonts **************/
+
+$font-size: 1rem;
+$acn-font: "Graphik", "Helvetica Neue","Verdana", "Helvetica", "Arial", "sans-serif";
+
+
+/*********** Breackpoints **************/
+
+$screen-xs: 480px;  /* Extra small screen / phone */
+$screen-sm: 748px;  /* Small screen / tablet */
+$screen-md: 1024px;  /* Medium screen / desktop */
+$screen-lg: 1200px; /* Large screen / wide desktop */
+$screen-xlg: 1400px; /* Extra large screen / wide desktop */
+
+
+/*********** Layout **************/
+
+
+
+
+/*********** Other **************/
+
+
+
+
+/*********** Mixin **************/
+
+@mixin container() {
+  width: 100%;
+  height: 100%;
+  padding: 2rem;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+@mixin background($img, $position, $size) {
+  background-image: url($img);
+  background-repeat: no-repeat;
+  background-position: center $position;
+  background-size: $size;
+}
+
+@mixin elem-fluido($properties, $min-vw, $max-vw, $min-value, $max-value) {
+  & {
+    @each $property in $properties {
+      #{$property}: $min-value;
+    }
+
+    @media screen and (min-width: $min-vw) {
+      @each $property in $properties {
+        #{$property}: calc(#{$min-value} + #{quitar-unidad($max-value - $min-value)} * (100vw - #{$min-vw}) / #{quitar-unidad($max-vw - $min-vw)});
+      }
+    }
+
+    @media screen and (min-width: $max-vw) {
+      @each $property in $properties {
+        #{$property}: $max-value;
+      }
+    }
+  }
+}
+
+@function quitar-unidad($value) {
+  @return $value / ($value * 0 + 1);
+}

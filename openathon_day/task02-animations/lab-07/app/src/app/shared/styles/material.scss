@@ -1,0 +1,8 @@
+@import '~@angular/material/theming';
+@include mat-core();
+
+$acn-primary: mat-palette($mat-grey, 900);
+$acn-accent:  mat-palette($mat-green, 500, 900, A100);
+$acn-warn:    mat-palette($mat-deep-orange);
+$acn-theme: mat-light-theme($acn-primary, $acn-accent, $acn-warn);
+@include angular-material-theme($acn-theme);
